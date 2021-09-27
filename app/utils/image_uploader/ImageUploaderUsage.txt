@@ -1,0 +1,24 @@
+Use Case 1, Save Image With Auto Generated Unique Name
+$generatedName = "";
+$isImageSaved = ImageUploader::withSrc($_FILES['img_file']['tmp_name'])
+                      ->destinationDir("Absolute/Path/to/Images/Directory")
+                      ->generateUniqueName($_FILES['img_file']['name'])
+                      ->mapGeneratedName($generatedName)
+                      ->compressQuality(75)
+                     ->save();
+if ($isImageSaved) {
+   // use your $generatedName
+}
+
+/*------------------------------------------------------------------------------*/
+
+// Use case 2, Save Image with custom name
+$isImageSaved = ImageUploader::withSrc($_FILES['img_file']['tmp_name'])
+                    ->destinationDir("Absolute/Path/to/Images/Directory")
+                    ->useName("somename.jpg")
+                    ->compressQuality(75)
+                    ->save();
+
+if ($isImageSaved) {
+    // use your $generatedName
+}

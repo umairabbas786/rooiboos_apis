@@ -1,0 +1,185 @@
+<?php
+
+
+class SendRidesToDriversApiDoc extends ApiDoc {
+
+    function onGeneralMeta() { ?>
+        <div class="api-general-meta">
+            <h2 class="api-title mt-5">Send Rides to Drivers</h2>
+            <div class="api-meta">
+                <p class="api-method">POST</p>
+                <p class="end-point">send_rides_to_drivers.php</p>
+            </div>
+        </div>
+
+        <p class="mt-4">This Api Sends Push Notification to drivers whose coordinates and fcm token are available in database, and matches according to request params.</p>
+    <?php }
+
+    function onParamsDoc() { ?>
+        <table class="table table-bordered params-table">
+            <tr>
+                <th>Param</th>
+                <th>type</th>
+                <th>Required</th>
+                <th>Value</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td class="gravity-center">__user_id__</td>
+                <td class="gravity-center">String</td>
+                <td class="gravity-center">True</td>
+                <td> ----------- </td>
+                <td>ID of client</td>
+            </tr>
+            <tr>
+                <td class="gravity-center">__authorization_token__</td>
+                <td class="gravity-center">String</td>
+                <td class="gravity-center">True</td>
+                <td> ----------- </td>
+                <td>Authorization token of client</td>
+            </tr>
+            <tr>
+                <td class="gravity-center">__abracadabra__</td>
+                <td class="gravity-center">String</td>
+                <td class="gravity-center">True</td>
+                <td> ----------- </td>
+                <td>Abracadabra which was provided with Authorization Token.</td>
+            </tr>
+            <tr>
+                <td class="gravity-center">lng</td>
+                <td class="gravity-center">float as String</td>
+                <td class="gravity-center">True</td>
+                <td> ----------- </td>
+                <td>Longitude of client</td>
+            </tr>
+            <tr>
+                <td class="gravity-center">lat</td>
+                <td class="gravity-center">float as String</td>
+                <td class="gravity-center">True</td>
+                <td> ----------- </td>
+                <td>Latitude of client</td>
+            </tr>
+            <tr>
+                <td class="gravity-center">range</td>
+                <td class="gravity-center">int|float as String</td>
+                <td class="gravity-center">True</td>
+                <td>10</td>
+                <td>Range like 50 KM, you have to specify a unit too in unit param</td>
+            </tr>
+            <tr>
+                <td rowspan="3" class="gravity-center">unit</td>
+                <td rowspan="3" class="gravity-center">String</td>
+                <td rowspan="3" class="gravity-center">True</td>
+                <td>METER</td>
+                <td>Sends Push Notification to Drivers where &lt;Range&gt; in Meters</td>
+            </tr>
+            <tr>
+                <td>KILOMETER</td>
+                <td>Sends Push Notification to Drivers where &lt;Range&gt; in Kilometers</td>
+            </tr>
+            <tr>
+                <td>MILE</td>
+                <td>Sends Push Notification to Drivers where &lt;Range&gt; in Miles</td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="gravity-center">comparison</td>
+                <td rowspan="2" class="gravity-center">String</td>
+                <td rowspan="2" class="gravity-center">True</td>
+                <td>IN</td>
+                <td>Sends Push Notification to Drivers where (distance &lt;= range)</td>
+            </tr>
+            <tr>
+                <td>OUT</td>
+                <td>Sends Push Notification to Drivers where (distance &gt;= range)</td>
+            </tr>
+            <tr>
+                <td class="gravity-center">ride_category_id</td>
+                <td class="gravity-center">int as String</td>
+                <td class="gravity-center">True</td>
+                <td> ----- </td>
+                <td>Id of Ride Category</td>
+            </tr>
+        </table>
+    <?php }
+
+    function onResponseDoc() { ?>
+        <p class="mt-4">Following response comes if you provided <span class="param">__user_id__</span>, but the server couldn&apos;t find any user with that id.</p>
+        <pre class="response-box"><code class="language-json <?php $this->getUniqueClass() ?>"></code></pre>
+        <script>
+            document.querySelector('.<?php $this->getUniqueClass(); ?>').innerHTML = JSON.stringify({
+                "cab_5_response_code": 410,
+                "cab_5_error": "Gone",
+                "data": {
+                    "exceptions": {
+                        "user_unavailable": true
+                    }
+                }
+            }, null, '\t')
+        </script>
+
+        <p class="mt-4">Following response comes if token is not valid.</p>
+        <pre class="response-box"><code class="language-json <?php $this->getUniqueClass() ?>"></code></pre>
+        <script>
+            document.querySelector('.<?php $this->getUniqueClass(); ?>').innerHTML = JSON.stringify({
+                "cab_5_response_code": 403,
+                "cab_5_error": "UNAUTHORIZED"
+            }, null, '\t')
+        </script>
+
+        <p class="mt-4">Following response comes if any parameter is missing or a given parameter value is wrong.</p>
+        <pre class="response-box"><code class="language-json kill-as-bad-request <?php $this->getUniqueClass() ?>"></code></pre>
+        <script>
+            document.querySelector('.<?php $this->getUniqueClass(); ?>').innerHTML = JSON.stringify({
+                "cab_5_response_code": 400,
+                "cab_5_error": "BAD_REQUEST"
+            }, null, '\t')
+        </script>
+
+        <p class="mt-4">Following response comes if your provided <span class="param">__user_id__</span> is of a driver instead of a client.</p>
+        <pre class="response-box"><code class="language-json kill-as-bad-request <?php $this->getUniqueClass() ?>"></code></pre>
+        <script>
+            document.querySelector('.<?php $this->getUniqueClass(); ?>').innerHTML = JSON.stringify({
+                "cab_5_response_code": 410,
+                "cab_5_error": "Gone",
+                "data": {
+                    "exceptions": {
+                        "requested_client_is_not_available_in_database": true
+                    }
+                }
+            }, null, '\t')
+        </script>
+
+        <p class="mt-4">Following response comes if user has pending rides to complete, user must cancel or complete previous rides in order to send new rides request.</p>
+        <pre class="response-box"><code class="language-json kill-as-bad-request <?php $this->getUniqueClass() ?>"></code></pre>
+        <script>
+            document.querySelector('.<?php $this->getUniqueClass(); ?>').innerHTML = JSON.stringify({
+                "cab_5_response_code": 506,
+                "cab_5_error": "Variant Also Negotiates",
+                "data": {
+                    "exceptions": {
+                        "user_already_have_incomplete_rides": true
+                    }
+                }
+            }, null, '\t')
+        </script>
+
+        <p class="mt-4">Following response comes when maybe response was successful. <span class="param">driver_count</span> is the total count of drivers whom were chosen for rides request.
+            <span class="param">rides_sent_to_drivers</span> this will be <span class="param">true</span> always if rides were sent else false.
+            <span class="param">rides_notifications_sent</span> This will be <span class="param">null</span> if no drivers were available else depends on response from Firebase Services if they
+            sent it then this will be <span class="param">true</span> else <span class="param">false</span>
+        </p>
+        <pre class="response-box"><code class="language-json kill-as-bad-request <?php $this->getUniqueClass() ?>"></code></pre>
+        <script>
+            document.querySelector('.<?php $this->getUniqueClass(); ?>').innerHTML = JSON.stringify({
+                "cab_5_response_code": 200,
+                "cab_5_error": "NONE",
+                "data": {
+                    "drivers_count": 12,
+                    "rides_sent_to_drivers": true,
+                    "rides_notifications_sent": true
+                }
+            }, null, '\t')
+        </script>
+
+    <?php }
+}
