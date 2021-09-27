@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "33cad8f96cda94123901f6d1023cc57f",
+    "content-hash": "3ee274029e6465265522c5e59c261bb0",
     "packages": [
         {
             "name": "brick/math",
@@ -268,56 +268,6 @@
             "time": "2021-04-26T09:17:50+00:00"
         },
         {
-            "name": "jordanbrauer/unit-converter",
-            "version": "0.8.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jordanbrauer/unit-converter.git",
-                "reference": "f4fb451e31946d643740a3a38c1cb8729668ad37"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jordanbrauer/unit-converter/zipball/f4fb451e31946d643740a3a38c1cb8729668ad37",
-                "reference": "f4fb451e31946d643740a3a38c1cb8729668ad37",
-                "shasum": ""
-            },
-            "require": {
-                "ext-bcmath": "*",
-                "ext-intl": "*",
-                "php": "^7.1 || ^8.0"
-            },
-            "require-dev": {
-                "ergebnis/composer-normalize": "^2.13",
-                "marcocesarato/php-conventional-changelog": "^1.9",
-                "nunomaduro/phpinsights": "^1.14",
-                "pestphp/pest": "^1.0",
-                "phpunit/phpunit": "^9.5",
-                "symfony/var-dumper": "^3.3"
-            },
-            "type": "component",
-            "autoload": {
-                "psr-4": {
-                    "UnitConverter\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "jordanbrauer",
-                    "email": "18744334+jordanbrauer@users.noreply.github.com"
-                }
-            ],
-            "description": "Convert standard units from one to another with this easy to use, lightweight package",
-            "support": {
-                "issues": "https://github.com/jordanbrauer/unit-converter/issues",
-                "source": "https://github.com/jordanbrauer/unit-converter/tree/v0.8.7"
-            },
-            "time": "2021-04-30T02:44:57+00:00"
-        },
-        {
             "name": "miladrahimi/phpcrypt",
             "version": "v5.0.0",
             "source": {
@@ -380,90 +330,17 @@
             "time": "2020-10-17T12:53:05+00:00"
         },
         {
-            "name": "mjaschen/phpgeo",
-            "version": "3.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mjaschen/phpgeo.git",
-                "reference": "c26fd54ba2f792f6a286fe5738fea9ce1c33ed28"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mjaschen/phpgeo/zipball/c26fd54ba2f792f6a286fe5738fea9ce1c33ed28",
-                "reference": "c26fd54ba2f792f6a286fe5738fea9ce1c33ed28",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^8.0",
-                "squizlabs/php_codesniffer": "^3.5",
-                "vimeo/psalm": "^3.12"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Location\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marcus Jaschen",
-                    "email": "mjaschen@gmail.com",
-                    "homepage": "https://www.marcusjaschen.de/"
-                }
-            ],
-            "description": "Simple Yet Powerful Geo Library",
-            "homepage": "https://phpgeo.marcusjaschen.de/",
-            "keywords": [
-                "Polygon",
-                "area",
-                "bearing",
-                "bounds",
-                "calculation",
-                "coordinate",
-                "distance",
-                "earth",
-                "ellipsoid",
-                "geo",
-                "geofence",
-                "gis",
-                "gps",
-                "haversine",
-                "length",
-                "perpendicular",
-                "point",
-                "polyline",
-                "projection",
-                "simplify",
-                "track",
-                "vincenty"
-            ],
-            "support": {
-                "docs": "https://phpgeo.marcusjaschen.de/Installation.html",
-                "email": "mjaschen@gmail.com",
-                "issues": "https://github.com/mjaschen/phpgeo/issues",
-                "source": "https://github.com/mjaschen/phpgeo/tree/3.2.1"
-            },
-            "time": "2021-03-04T10:03:03+00:00"
-        },
-        {
             "name": "nesbot/carbon",
-            "version": "2.51.1",
+            "version": "2.53.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "8619c299d1e0d4b344e1f98ca07a1ce2cfbf1922"
+                "reference": "f4655858a784988f880c1b8c7feabbf02dfdf045"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8619c299d1e0d4b344e1f98ca07a1ce2cfbf1922",
-                "reference": "8619c299d1e0d4b344e1f98ca07a1ce2cfbf1922",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/f4655858a784988f880c1b8c7feabbf02dfdf045",
+                "reference": "f4655858a784988f880c1b8c7feabbf02dfdf045",
                 "shasum": ""
             },
             "require": {
@@ -475,7 +352,7 @@
             },
             "require-dev": {
                 "doctrine/orm": "^2.7",
-                "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
+                "friendsofphp/php-cs-fixer": "^3.0",
                 "kylekatarnls/multi-tester": "^2.0",
                 "phpmd/phpmd": "^2.9",
                 "phpstan/extension-installer": "^1.0",
@@ -544,7 +421,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-28T13:16:28+00:00"
+            "time": "2021-09-06T09:29:23+00:00"
         },
         {
             "name": "paragraph1/php-fcm",
@@ -786,24 +663,25 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.2.1",
+            "version": "4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "fe665a03df4f056aa65af552a96e1976df8c8dae"
+                "reference": "fc9bb7fb5388691fd7373cd44dcb4d63bbcf24df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/fe665a03df4f056aa65af552a96e1976df8c8dae",
-                "reference": "fe665a03df4f056aa65af552a96e1976df8c8dae",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/fc9bb7fb5388691fd7373cd44dcb4d63bbcf24df",
+                "reference": "fc9bb7fb5388691fd7373cd44dcb4d63bbcf24df",
                 "shasum": ""
             },
             "require": {
                 "brick/math": "^0.8 || ^0.9",
                 "ext-json": "*",
-                "php": "^7.2 || ^8",
+                "php": "^7.2 || ^8.0",
                 "ramsey/collection": "^1.0",
-                "symfony/polyfill-ctype": "^1.8"
+                "symfony/polyfill-ctype": "^1.8",
+                "symfony/polyfill-php80": "^1.14"
             },
             "replace": {
                 "rhumsaa/uuid": "self.version"
@@ -867,7 +745,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/uuid/issues",
-                "source": "https://github.com/ramsey/uuid/tree/4.2.1"
+                "source": "https://github.com/ramsey/uuid/tree/4.2.3"
             },
             "funding": [
                 {
@@ -879,7 +757,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-11T01:06:55+00:00"
+            "time": "2021-09-25T23:10:38+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -1518,16 +1396,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v5.3.4",
+            "version": "v5.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "d89ad7292932c2699cbe4af98d72c5c6bbc504c1"
+                "reference": "4d595a6d15fd3a2c67f6f31d14d15d3b7356d7a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/d89ad7292932c2699cbe4af98d72c5c6bbc504c1",
-                "reference": "d89ad7292932c2699cbe4af98d72c5c6bbc504c1",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/4d595a6d15fd3a2c67f6f31d14d15d3b7356d7a6",
+                "reference": "4d595a6d15fd3a2c67f6f31d14d15d3b7356d7a6",
                 "shasum": ""
             },
             "require": {
@@ -1593,7 +1471,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v5.3.4"
+                "source": "https://github.com/symfony/translation/tree/v5.3.7"
             },
             "funding": [
                 {
@@ -1609,7 +1487,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-25T09:39:16+00:00"
+            "time": "2021-08-26T08:22:53+00:00"
         },
         {
             "name": "symfony/translation-contracts",

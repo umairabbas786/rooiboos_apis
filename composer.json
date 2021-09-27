@@ -2,8 +2,6 @@
     "require": {
         "nesbot/carbon": "^2.51",
         "miladrahimi/phpcrypt": "5.0.0",
-        "mjaschen/phpgeo": "^3.2",
-        "jordanbrauer/unit-converter": "^0.8.7",
         "paragraph1/php-fcm": "^0.7.0",
         "ramsey/uuid": "^4.2"
     }
