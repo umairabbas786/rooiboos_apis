@@ -2,21 +2,21 @@
 
 import os
 
-ROOIBOOSROOT = "/opt/lampp/htdocs/cab-5-server"
-os.system(f'rm {ROOIBOOSROOT}/SERVER.tar.gz')
+ROOIBOOSROOT = "rooiboosapi"
+os.system('rm SERVER.tar.gz')
 
-if not os.path.exists(f'{ROOIBOOSROOT}/build'):
-    os.mkdir(f'{ROOIBOOSROOT}/build')
+if not os.path.exists('build'):
+    os.mkdir('build')
 
 ignore = ['.idea', '.gitignore', 'data', '.git', 'compile.py', 'build', 'composer.json', 'composer.lock']
 
-for f in os.listdir(ROOIBOOSROOT):
+for f in os.listdir():
     if f not in ignore:
         os.system(f'cp -rf {f} build/')
 
 db_file_content = []
 
-with open(f'{ROOIBOOSROOT}/build/app/database/db/Cab5DB.php', 'r') as db_file:
+with open('build/app/database/db/Cab5DB.php', 'r') as db_file:
     for lin in db_file.readlines():
         db_file_content.append(lin)
 
@@ -30,7 +30,7 @@ DATABASE = "cab5_electro"
 # DB_PASSWORD = "smstoconnect???"
 # DATABASE = "numbvscc_cab5"
 
-with open(f'{ROOIBOOSROOT}/build/app/database/db/Cab5DB.php', 'w+') as db_file:
+with open('build/app/database/db/Cab5DB.php', 'w+') as db_file:
     for lin in db_file_content:
         if 'const USERNAME = ' in lin:
             lin = lin.replace('\"root\"', f'\"{DB_USERNAME}\"')
@@ -40,9 +40,8 @@ with open(f'{ROOIBOOSROOT}/build/app/database/db/Cab5DB.php', 'w+') as db_file:
             lin = lin.replace('\"cab5\"', f'\"{DATABASE}\"')
         db_file.write(lin)
 
-
-find_exec_cmd = "rm {} \;"
-os.system(f'find {ROOIBOOSROOT}/build -name "*.txt" -exec {find_exec_cmd}')
+os.system('rm build/app/libs/query_builder/QueryBuilderUsage.txt')
+os.system('rm build/app/utils/image_uploader/ImageUploaderUsage.txt')
 
 def getRouteName(agent):
     route = ""
@@ -56,16 +55,16 @@ def getRouteName(agent):
 routes = []
 for f in os.listdir("app/agents"):
     routeName = getRouteName(f)
-    with open(f'{ROOIBOOSROOT}/build/{routeName}', 'w+') as routeFile:
+    with open(f'build/{routeName}', 'w+') as routeFile:
         routeFile.write('<?php require "app/Manifest.php";\n')
         routeFile.write('(new {}())->launch();'.format(f[:-4]))
     routes.append(routeName)
 
 print("Creating TarBall... ")
-os.system(f'cd {ROOIBOOSROOT}/build && tar -czf ../SERVER.tar.gz * && rm -rf {ROOIBOOSROOT}/build')
+os.system('cd build && tar -czf ../SERVER.tar.gz * && cd .. && rm -rf build')
 
 print("Connecting To Ftp Client")
-os.system('ftp cab5.pk')
+#os.system('ftp cab5.pk')
 
 print("Launching SSH Session")
-os.system('ssh cab5@cab5.pk')
+#os.system('ssh cab5@cab5.pk')
