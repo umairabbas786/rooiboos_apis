@@ -74,9 +74,7 @@ class Manifest {
     private const AGENTS = [
         'dir_path' => './',
         'agents' => [
-            LoginDriver::class,
-            RegisterDriver::class,
-            UploadDriverCnic::class
+            FetchCustomerWithEmail::class
         ]
     ];
 
