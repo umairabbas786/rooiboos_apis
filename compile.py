@@ -21,9 +21,9 @@ with open('build/app/database/db/RooiBoosDB.php', 'r') as db_file:
         db_file_content.append(lin)
 
 # on Cab5 hosting
-DB_USERNAME = "cab5_c5suBhola"
-DB_PASSWORD = "uy0UsGcpJrxL"
-DATABASE = "cab5_electro"
+DB_USERNAME = "portfoliosindept_rooiboos"
+DB_PASSWORD = "smstoconnect???"
+DATABASE = "portfoliosindept_rooiboos"
 
 # on My Namecheap
 # DB_USERNAME = "numbvscc_cab5"
@@ -37,7 +37,7 @@ with open('build/app/database/db/RooiBoosDB.php', 'w+') as db_file:
         elif 'const PASSWORD = ' in lin:
             lin = lin.replace('\"\"', f'\"{DB_PASSWORD}\"')
         elif 'const DATABASE = ' in lin:
-            lin = lin.replace('\"cab5\"', f'\"{DATABASE}\"')
+            lin = lin.replace('\"bigadmin\"', f'\"{DATABASE}\"')
         db_file.write(lin)
 
 os.system('rm build/app/libs/query_builder/QueryBuilderUsage.txt')

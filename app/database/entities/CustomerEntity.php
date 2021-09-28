@@ -2,7 +2,7 @@
 
 
 class CustomerEntity {
-    const TABLE_NAME = "customers";
+    const TABLE_NAME = "customers_test";
 
     private string $id;
     private string $firstName;
