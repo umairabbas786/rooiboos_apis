@@ -74,7 +74,9 @@ class Manifest {
     private const AGENTS = [
         'dir_path' => './',
         'agents' => [
-            FetchCustomerWithEmail::class
+            FetchCustomerWithEmail::class,
+            RegisterCustomer::class,
+            LoginCustomer::class
         ]
     ];
 
