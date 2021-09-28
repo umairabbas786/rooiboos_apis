@@ -50,7 +50,7 @@ class RegisterCustomer extends RooiBoosApi {
     protected function onDevise() {
         $cnicFrontGeneratedName = "";
         $isCnicFrontImageSaved = ImageUploader::withSrc($_FILES[self::CNIC_FRONT]['tmp_name'])
-            ->destinationDir($this->getDriverAvatarImagesDirectory())
+            ->destinationDir($this->getCustomerCnicImagesDirectory())
             ->generateUniqueName($_FILES[self::CNIC_FRONT]['name'])
             ->mapGeneratedName($cnicFrontGeneratedName)
             ->compressQuality(75)
@@ -64,7 +64,7 @@ class RegisterCustomer extends RooiBoosApi {
 
         $cnicBackGeneratedName = "";
         $isCnicBackImageSaved = ImageUploader::withSrc($_FILES[self::CNIC_BACK]['tmp_name'])
-            ->destinationDir($this->getDriverAvatarImagesDirectory())
+            ->destinationDir($this->getCustomerCnicImagesDirectory())
             ->generateUniqueName($_FILES[self::CNIC_BACK]['name'])
             ->mapGeneratedName($cnicBackGeneratedName)
             ->compressQuality(75)
@@ -131,8 +131,8 @@ class RegisterCustomer extends RooiBoosApi {
                 CustomerTableSchema::PHONE_NUMBER => $customer->getPhoneNumber(),
                 CustomerTableSchema::PHONE_VERIFICATION => $customer->isPhoneVerified(),
                 CustomerTableSchema::PASSWORD => $customer->getPassword(),
-                CustomerTableSchema::CNIC_FRONT => $customer->getCnicFront(),
-                CustomerTableSchema::CNIC_BACK => $customer->getCnicBack(),
+                CustomerTableSchema::CNIC_FRONT => $this->createLinkForCustomerCnicImage($customer->getCnicFront()),
+                CustomerTableSchema::CNIC_BACK => $this->createLinkForCustomerCnicImage($customer->getCnicBack()),
                 CustomerTableSchema::COUNTRY => $customer->getCountry(),
                 CustomerTableSchema::ACCOUNT_HOLDER_NAME => $customer->getAccountHolderName(),
                 CustomerTableSchema::ACCOUNT_NUMBER => $customer->getAccountNumber(),

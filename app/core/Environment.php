@@ -3,44 +3,27 @@
 trait Environment {
 
     private function getServerNameWithAvailableProtocol(): string {
-        $server_name = $_SERVER["SERVER_NAME"];
-        if ($server_name === "localhost" || $server_name === "192.168.43.174") {
-            return "http://" . $server_name . "/rooiboosapi";
-        }
-        return 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $server_name;
+        return 'https://rooiboos.portfoliosindepth.com';
     }
 
     private function getServerUrlUptoImagesDir(): string {
-        return $this->getServerNameWithAvailableProtocol() . "/data/images";
+        return $this->getServerNameWithAvailableProtocol() . "/assets/img";
     }
 
     public function getDataImagesDirectory(): string {
-        return Manifest::getAppSystemRoot() . '/data/images';
+        return Manifest::getAppSystemRoot() . '../assets/img';
     }
 
     /**
-     * <PassengersAvatars>
+     * <user_cnic_image>
      */
-    public function getPassengerAvatarImagesDirectory(): string {
-        return $this->getDataImagesDirectory() . '/passengers_avatars';
+    public function getCustomerCnicImagesDirectory(): string {
+        return $this->getDataImagesDirectory() . '/users';
     }
 
-    public function createLinkForPassengerAvatarImage(string $image_name): string {
-        return $this->getServerUrlUptoImagesDir() . '/passengers_avatars/' . $image_name;
+    public function createLinkForCustomerCnicImage(string $image_name): string {
+        return $this->getServerUrlUptoImagesDir() . '/users/' . $image_name;
     }
-    /** ----------------- </PassengersAvatars> */
-
-
-    /**
-     * <Driver CNIC>
-     */
-    public function getDriverCnicImagesDirectory(): string {
-        return $this->getDataImagesDirectory() . '/driver_cnic';
-    }
-
-    public function createLinkForDriverCnicImage(string $image_name): string {
-        return $this->getServerUrlUptoImagesDir() . '/driver_cnic/' . $image_name;
-    }
-    /**  ------------- </Driver CNIC> */
+    /** ----------------- </user_cnic_image> */
 
 }
