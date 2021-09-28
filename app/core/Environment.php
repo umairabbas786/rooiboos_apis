@@ -11,7 +11,7 @@ trait Environment {
     }
 
     public function getDataImagesDirectory(): string {
-        return Manifest::getAppSystemRoot() . '../assets/img';
+        return Manifest::getAppSystemRoot() . '/../assets/img';
     }
 
     /**
