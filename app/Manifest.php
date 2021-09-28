@@ -1,7 +1,6 @@
 <?php
 
 class Manifest {
-    const AUTH_TOKEN_VALIDATION_ENABLED = false; // if false, All API's won't check for abracadabra and authorization_token
     const DEBUG_MODE = true; // if true, all bad requests will show the exception
 
     private const COMPOSER_VENDOR = [
@@ -13,10 +12,6 @@ class Manifest {
 
     private const LIBS = [
         'dir_path' => './libs',
-        'magician' => [
-            MagicianPayload::class,
-            Magician::class
-        ],
         'query_builder' => [
             QueryType::class,
             Query::class,
@@ -27,9 +22,6 @@ class Manifest {
             DeleteQuery::class,
             QueryBuilder::class
         ],
-        'auth_mailer_assistant' => [
-            AuthMailerAssistant::class
-        ],
         'db_libs' => [
             TableDao::class,
             TableSchema::class
@@ -39,67 +31,19 @@ class Manifest {
     private const DATABASE = [
         'dir_path' => './database',
         'entities' => [
-            CityEntity::class,
-            DriverAvatarEntity::class,
-            DriverCnicEntity::class,
-            DriverEntity::class,
-            DriverLicenseEntity::class,
-            DriverRideCategoryEntity::class,
-            DriverVehicleNumberPlateEntity::class,
-            FreeDistanceEntity::class,
-            PassengerAvatarEntity::class,
-            PassengerEntity::class,
-            RideCategoryEntity::class,
-            RideEntity::class,
-            ScheduleRideEntity::class
+            CustomerEntity::class
         ],
         'schema' => [
-            CityTableSchema::class,
-            DriverAvatarTableSchema::class,
-            DriverCnicTableSchema::class,
-            DriverLicenseTableSchema::class,
-            DriverRideCategoryTableSchema::class,
-            DriverTableSchema::class,
-            DriverVehicleNumberPlateTableSchema::class,
-            FreeDistanceTableSchema::class,
-            PassengerAvatarTableSchema::class,
-            PassengerTableSchema::class,
-            RideCategoryTableSchema::class,
-            RideTableSchema::class,
-            ScheduleRidesTableSchema::class
+            CustomerTableSchema::class
         ],
         'factories' => [
-            CityFactory::class,
-            DriverAvatarFactory::class,
-            DriverCnicFactory::class,
-            DriverFactory::class,
-            DriverLicenseFactory::class,
-            DriverRideCategoryFactory::class,
-            DriverVehicleNumberPlateFactory::class,
-            FreeDistanceFactory::class,
-            PassengerAvatarFactory::class,
-            PassengerFactory::class,
-            RideCategoryFactory::class,
-            RideFactory::class,
-            ScheduleRideFactory::class
+            CustomerFactory::class
         ],
         'dao' => [
-            CityDao::class,
-            DriverAvatarDao::class,
-            DriverCnicDao::class,
-            DriverDao::class,
-            DriverLicenseDao::class,
-            DriverRideCategoryDao::class,
-            DriverVehicleNumberPlateDao::class,
-            FreeDistanceDao::class,
-            PassengerAvatarDao::class,
-            PassengerDao::class,
-            RideCategoryDao::class,
-            RideDao::class,
-            ScheduleRideDao::class
+            CustomerDao::class
         ],
         'db' => [
-            Cab5DB::class
+            RooiBoosDB::class
         ]
     ];
 
@@ -107,8 +51,8 @@ class Manifest {
         'dir_path' => './',
         'core' => [
             Environment::class,
-            Cab5Response::class,
-            Cab5Api::class
+            RooiBoosResponse::class,
+            RooiBoosApi::class
         ]
     ];
 
@@ -119,64 +63,20 @@ class Manifest {
         ]
     ];
 
-    private const MODELS = [
-        'dir_path' => './',
-        'models' => [
-            UserRole::class,
-            RideState::class
-        ]
-    ];
+//    private const MODELS = [
+//        'dir_path' => './',
+//        'models' => [
+//            UserRole::class,
+//            RideState::class
+//        ]
+//    ];
 
     private const AGENTS = [
         'dir_path' => './',
         'agents' => [
-            AcceptDriverRideNotification::class,
-            AddCity::class,
-            AddRideCategory::class,
-            CancelCurrentRide::class,
-            EndRide::class,
-            FetchCities::class,
-            FetchDriverRideNotification::class,
-            FetchDrivers::class,
-            FetchRideCategories::class,
-            FetchPassengers::class,
-            GetDriverRideStats::class,
-            GetPassengerRideStats::class,
             LoginDriver::class,
-            LoginPassenger::class,
             RegisterDriver::class,
-            RegisterPassenger::class,
-            RejectDriverRideNotification::class,
-            SendRidesToDrivers::class,
-            SetRideStateArrived::class,
-            SetRideStateStarted::class,
-            ToggleDriverRideCategory::class,
-            ToggleDriverSeekingRides::class,
-            UpdateDriverFcmToken::class,
-            UpdateDriverLongitudeLatitude::class,
-            UpdatePassengerFcmToken::class,
-            UpdatePassengerLongitudeLatitude::class,
-            UploadDriverCnic::class,
-            UploadDriverLicense::class,
-            UploadDriverVehicleNumberPlate::class,
-            GetDriverRideHistory::class,
-            GetPassengerRideHistory::class,
-            GetPassengerWalletAmount::class,
-            GetDriverWalletAmount::class,
-            AddAmountToPassengerWallet::class,
-            AddAmountToDriverWallet::class,
-            SchedulePassengerRide::class,
-            GetPassengerScheduledRides::class,
-            ToggleDriverBlock::class,
-            TogglePassengerBlock::class,
-            ToggleCityEnableDisable::class,
-            ToggleRideCategoryEnableDisable::class,
-            GetAllTripsDetail::class,
-            GetAllScheduledRides::class,
-            UpdateCity::class,
-            SendRidesOfScheduledRide::class,
-            UpdateRideCategory::class,
-            AddFreeKilometersToDrivers::class
+            UploadDriverCnic::class
         ]
     ];
 
@@ -221,7 +121,7 @@ class Manifest {
         self::requireItems(self::DATABASE);
         self::requireItems(self::CORE);
         self::requireItems(self::UTILS);
-        self::requireItems(self::MODELS);
+        //self::requireItems(self::MODELS);
         self::requireItems(self::AGENTS);
     }
 

@@ -16,7 +16,7 @@ for f in os.listdir():
 
 db_file_content = []
 
-with open('build/app/database/db/Cab5DB.php', 'r') as db_file:
+with open('build/app/database/db/RooiBoosDB.php', 'r') as db_file:
     for lin in db_file.readlines():
         db_file_content.append(lin)
 
@@ -30,7 +30,7 @@ DATABASE = "cab5_electro"
 # DB_PASSWORD = "smstoconnect???"
 # DATABASE = "numbvscc_cab5"
 
-with open('build/app/database/db/Cab5DB.php', 'w+') as db_file:
+with open('build/app/database/db/RooiBoosDB.php', 'w+') as db_file:
     for lin in db_file_content:
         if 'const USERNAME = ' in lin:
             lin = lin.replace('\"root\"', f'\"{DB_USERNAME}\"')
