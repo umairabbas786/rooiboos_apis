@@ -24,6 +24,12 @@ class LoginCustomer extends RooiBoosApi {
             ]);
         }
 
+        if ($customer->isStatus() === true) {
+            $this->killAsFailure([
+                'customer_blocked' => true
+            ]);
+        }
+
         if($customer->getPassword() !== $_POST[self::PASSWORD]){
             $this->killAsFailure([
                 'wrong_password' => true

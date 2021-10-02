@@ -31,16 +31,24 @@ class Manifest {
     private const DATABASE = [
         'dir_path' => './database',
         'entities' => [
-            CustomerEntity::class
+            CustomerEntity::class,
+            CountryEntity::class,
+            CurrencyEntity::class
         ],
         'schema' => [
-            CustomerTableSchema::class
+            CustomerTableSchema::class,
+            CountryTableSchema::class,
+            CurrencyTableSchema::class
         ],
         'factories' => [
-            CustomerFactory::class
+            CustomerFactory::class,
+            CountryFactory::class,
+            CurrencyFactory::class
         ],
         'dao' => [
-            CustomerDao::class
+            CustomerDao::class,
+            CountryDao::class,
+            CurrencyDao::class
         ],
         'db' => [
             RooiBoosDB::class
@@ -76,7 +84,9 @@ class Manifest {
         'agents' => [
             FetchCustomerWithEmail::class,
             RegisterCustomer::class,
-            LoginCustomer::class
+            LoginCustomer::class,
+            FetchCountries::class,
+            FetchCurrency::class
         ]
     ];
 
