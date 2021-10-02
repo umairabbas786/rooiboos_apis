@@ -33,22 +33,26 @@ class Manifest {
         'entities' => [
             CustomerEntity::class,
             CountryEntity::class,
-            CurrencyEntity::class
+            CurrencyEntity::class,
+            CustomerWalletEntity::class
         ],
         'schema' => [
             CustomerTableSchema::class,
             CountryTableSchema::class,
-            CurrencyTableSchema::class
+            CurrencyTableSchema::class,
+            CustomerWalletTableSchema::class
         ],
         'factories' => [
             CustomerFactory::class,
             CountryFactory::class,
-            CurrencyFactory::class
+            CurrencyFactory::class,
+            CustomerWalletFactory::class
         ],
         'dao' => [
             CustomerDao::class,
             CountryDao::class,
-            CurrencyDao::class
+            CurrencyDao::class,
+            CustomerWalletDao::class
         ],
         'db' => [
             RooiBoosDB::class
@@ -86,7 +90,9 @@ class Manifest {
             RegisterCustomer::class,
             LoginCustomer::class,
             FetchCountries::class,
-            FetchCurrency::class
+            FetchCurrency::class,
+            CreateCustomerWallet::class,
+            ShowUserAllWallets::class
         ]
     ];
 

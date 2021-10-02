@@ -69,4 +69,25 @@ class CustomerWalletDao extends TableDao {
         return null;
     }
 
+    public function getAllCustomerWallets(string $customerId): array {
+        $query = QueryBuilder::withQueryType(QueryType::SELECT)
+            ->withTableName(CustomerWalletEntity::TABLE_NAME)
+            ->columns(['*'])
+            ->whereParams(array(
+                [CustomerWalletTableSchema::CUSTOMER_ID, '=', $this->escape_string($customerId)]
+            ))
+            ->generate();
+
+        $result = mysqli_query($this->getConnection(),$query);
+
+        $wallets = [];
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            array_push($wallets, CustomerWalletFactory::mapFromDatabaseResult($row));
+        }
+
+        return $wallets;
+    }
+
+
 }
