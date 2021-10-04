@@ -89,5 +89,22 @@ class CustomerWalletDao extends TableDao {
         return $wallets;
     }
 
+    public function removeCustomerWallet(string $customerId,string $currencyId){
+        $query = QueryBuilder::withQueryType(QueryType::DELETE)->withTableName(CustomerWalletEntity::TABLE_NAME)
+                ->whereParams(
+                    array(
+                        [CustomerWalletTableSchema::CUSTOMER_ID, '=', $this->escape_string($customerId)],
+                        ['AND'],
+                        [CustomerWalletTableSchema::CURRENCY_ID, '=', $this->escape_string($currencyId)]
+                    )
+                )
+                ->generate();
+
+        $result = mysqli_query($this->getConnection(),$query);
+        if($this->getConnection() -> affected_rows > 0){
+            return true;
+        }
+        return null;
+    }
 
 }

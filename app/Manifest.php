@@ -92,7 +92,9 @@ class Manifest {
             FetchCountries::class,
             FetchCurrency::class,
             CreateCustomerWallet::class,
-            ShowUserAllWallets::class
+            ShowUserAllWallets::class,
+            CheckCurrency::class,
+            RemoveCustomerWallet::class
         ]
     ];
 
