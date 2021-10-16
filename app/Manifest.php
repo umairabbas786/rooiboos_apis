@@ -34,25 +34,33 @@ class Manifest {
             CustomerEntity::class,
             CountryEntity::class,
             CurrencyEntity::class,
-            CustomerWalletEntity::class
+            CustomerWalletEntity::class,
+            DepositFeeEntity::class,
+            WithdrawFeeEntity::class
         ],
         'schema' => [
             CustomerTableSchema::class,
             CountryTableSchema::class,
             CurrencyTableSchema::class,
-            CustomerWalletTableSchema::class
+            CustomerWalletTableSchema::class,
+            DepositFeeTableSchema::class,
+            WithdrawFeeTableSchema::class
         ],
         'factories' => [
             CustomerFactory::class,
             CountryFactory::class,
             CurrencyFactory::class,
-            CustomerWalletFactory::class
+            CustomerWalletFactory::class,
+            DepositFeeFactory::class,
+            WithdrawFeeFactory::class
         ],
         'dao' => [
             CustomerDao::class,
             CountryDao::class,
             CurrencyDao::class,
-            CustomerWalletDao::class
+            CustomerWalletDao::class,
+            DepositFeeDao::class,
+            WithdrawFeeDao::class
         ],
         'db' => [
             RooiBoosDB::class
