@@ -17,7 +17,7 @@ class WithdrawFeeDao extends TableDao {
         array_push($insertValues, $this->escape_string($withdrawFeeEntity->getId()));
 
         array_push($insertColumns, WithdrawFeeTableSchema::WITHDRAW_FEE);
-        array_push($insertValues, $this->escape_string($withdrawFeeEntity->getDepositFee()));
+        array_push($insertValues, $this->escape_string($withdrawFeeEntity->getWithdrawFee()));
 
         array_push($insertColumns, WithdrawFeeTableSchema::CREATED_AT);
         array_push($insertValues, $this->escape_string($withdrawFeeEntity->getCreatedAt()));
