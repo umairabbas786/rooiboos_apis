@@ -107,4 +107,22 @@ class CustomerWalletDao extends TableDao {
         return null;
     }
 
+    public function updateWalletBalance(CustomerWalletEntity $wallet){
+        $query = QueryBuilder::withQueryType(QueryType::UPDATE)
+            ->withTableName(CustomerWalletEntity::TABLE_NAME)
+            ->updateParams([
+                [CustomerWalletTableSchema::BALANCE, $this->escape_string($wallet->getBalance())],
+                [CustomerWalletTableSchema::UPDATED_AT, $this->escape_string($wallet->getUpdatedAt())]
+            ])
+            ->whereParams(array(
+                [CustomerWalletTableSchema::ID, '=', $this->escape_string($wallet->getId())]
+            ))
+            ->generate();
+        $result = mysqli_query($this->getConnection(),$query);
+        if($result){
+            return $this->getCustomerWalletWithId($wallet->getId());
+        }
+        return null;
+    }
+
 }

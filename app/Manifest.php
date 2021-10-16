@@ -102,7 +102,11 @@ class Manifest {
             CreateCustomerWallet::class,
             ShowUserAllWallets::class,
             CheckCurrency::class,
-            RemoveCustomerWallet::class
+            RemoveCustomerWallet::class,
+            DepositBalance::class,
+            WithdrawBalance::class,
+            GetWithdrawFee::class,
+            GetDepositFee::class
         ]
     ];
 
