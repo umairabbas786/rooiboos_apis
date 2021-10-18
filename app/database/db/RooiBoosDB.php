@@ -15,6 +15,7 @@ class RooiBoosDB {
     private DepositFeeDao $depositFeeDao;
     private WithdrawFeeDao $withdrawFeeDao;
     private BankDao $bankDao;
+    private DepositHistoryDao $depositHistoryDao;
 
     function __construct() {
         $temp_conn = mysqli_connect(self::HOSTNAME, self::USERNAME, self::PASSWORD, self::DATABASE);
@@ -45,6 +46,9 @@ class RooiBoosDB {
 
         mysqli_query($this->conn, (new BankTableSchema())->getBlueprint()); // Create Bank Table
         $this->bankDao = new BankDao($this->conn); // Initialize Bank Dao
+
+        mysqli_query($this->conn, (new DepositHistoryTableSchema())->getBlueprint()); // Create Deposit History Table
+        $this->depositHistoryDao = new DepositHistoryDao($this->conn); // Initialize Deposit History Dao
     }
 
     public function getConnection(): mysqli {
@@ -81,5 +85,9 @@ class RooiBoosDB {
 
     public function getBankDao(): BankDao {
         return $this->bankDao;
+    }
+
+    public function getDepositHistoryDao(): DepositHistoryDao {
+        return $this->depositHistoryDao;
     }
 }

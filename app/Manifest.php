@@ -37,7 +37,8 @@ class Manifest {
             CustomerWalletEntity::class,
             DepositFeeEntity::class,
             WithdrawFeeEntity::class,
-            BankEntity::class
+            BankEntity::class,
+            DepositHistoryEntity::class
         ],
         'schema' => [
             CustomerTableSchema::class,
@@ -46,7 +47,8 @@ class Manifest {
             CustomerWalletTableSchema::class,
             DepositFeeTableSchema::class,
             WithdrawFeeTableSchema::class,
-            BankTableSchema::class
+            BankTableSchema::class,
+            DepositHistoryTableSchema::class
         ],
         'factories' => [
             CustomerFactory::class,
@@ -55,7 +57,8 @@ class Manifest {
             CustomerWalletFactory::class,
             DepositFeeFactory::class,
             WithdrawFeeFactory::class,
-            BankFactory::class
+            BankFactory::class,
+            DepositHistoryFactory::class
         ],
         'dao' => [
             CustomerDao::class,
@@ -64,7 +67,8 @@ class Manifest {
             CustomerWalletDao::class,
             DepositFeeDao::class,
             WithdrawFeeDao::class,
-            BankDao::class
+            BankDao::class,
+            DepositHistoryDao::class
         ],
         'db' => [
             RooiBoosDB::class
@@ -111,7 +115,8 @@ class Manifest {
             WithdrawBalance::class,
             GetWithdrawFee::class,
             GetDepositFee::class,
-            FetchBanks::class
+            FetchBanks::class,
+            FetchDepositHistoryWithCustomerId::class
         ]
     ];
 
