@@ -116,7 +116,8 @@ class Manifest {
             GetWithdrawFee::class,
             GetDepositFee::class,
             FetchBanks::class,
-            FetchDepositHistoryWithCustomerId::class
+            FetchDepositHistoryWithCustomerId::class,
+            AddDepositHistory::class
         ]
     ];
 
