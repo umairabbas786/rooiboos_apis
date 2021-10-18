@@ -53,7 +53,8 @@ class DepositHistoryDao extends TableDao {
     }
 
     public function getDepositHistoryWithCustomerId(string $customerId): array {
-        $query = QueryBuilder::withQueryType(QueryType::SELECT)->withTableName(DepositHistoryEntity::TABLE_NAME)
+        $query = QueryBuilder::withQueryType(QueryType::SELECT)
+            ->withTableName(DepositHistoryEntity::TABLE_NAME)
             ->columns(['*'])
             ->whereParams(array(
                 [DepositHistoryTableSchema::CUSTOMER_ID, '=', $this->escape_string($customerId)]
@@ -65,7 +66,7 @@ class DepositHistoryDao extends TableDao {
         $result = mysqli_query($this->getConnection(),$query);
 
         while ($row = mysqli_fetch_assoc($result)) {
-            array_push($histories, DepositHistoryFactory::mapFromDatabaseResult(mysqli_fetch_assoc($row)));
+            array_push($histories, DepositHistoryFactory::mapFromDatabaseResult($row));
         }
 
         return $histories;
