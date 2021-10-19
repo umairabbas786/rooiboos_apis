@@ -41,7 +41,7 @@ class AddWithdrawHistory extends RooiBoosApi {
             $_POST[self::ACCOUNT_HOLDER_NAME],
             $_POST[self::IBAN],
             $_POST[self::BALANCE],
-            0,
+            false,
             $registration_time,
             $registration_time
         );

@@ -8,7 +8,7 @@ class WithdrawHistoryTableSchema extends TableSchema {
     const CURRENCY_ID = "currency_id";
     const BANK_ID = "bank_id";
     const ACCOUNT_HOLDER_NAME = "account_holder_name";
-    const IBAN = "IBAN";
+    const IBAN = "iban";
     const BALANCE = "balance";
     const STATUS = "status";
     const CREATED_AT = "created_at";

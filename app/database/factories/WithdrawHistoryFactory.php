@@ -15,7 +15,7 @@ class WithdrawHistoryFactory {
             $result[WithdrawHistoryTableSchema::ACCOUNT_HOLDER_NAME],
             $result[WithdrawHistoryTableSchema::IBAN],
             (float) $result[WithdrawHistoryTableSchema::BALANCE],
-            (int) $result[WithdrawHistoryTableSchema::STATUS] === 0,
+            (int) $result[WithdrawHistoryTableSchema::STATUS] === 1,
             $result[WithdrawHistoryTableSchema::CREATED_AT],
             $result[WithdrawHistoryTableSchema::UPDATED_AT]
         );

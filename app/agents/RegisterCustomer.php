@@ -84,14 +84,6 @@ class RegisterCustomer extends RooiBoosApi {
             ]);
         }
 
-//        $rideCategoryEntity = $this->getCab5db()->getRideCategoryDao()->getRideCategoryWithID($_POST[self::RIDE_CATEGORY_ID]);
-//
-//        if ($rideCategoryEntity === null) {
-//            $this->killAsGoneRequest([
-//                "requested_ride_category_is_no_more_available" => true
-//            ]);
-//        }
-
         $registration_time = Carbon::now();
 
         $customer = new CustomerEntity(

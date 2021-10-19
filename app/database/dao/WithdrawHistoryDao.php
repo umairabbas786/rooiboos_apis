@@ -96,7 +96,8 @@ class WithdrawHistoryDao extends TableDao {
     }
 
     public function getWithdrawHistoryWithId(string $id): ?WithdrawHistoryEntity {
-        $query = QueryBuilder::withQueryType(QueryType::SELECT)->withTableName(WithdrawHistoryEntity::TABLE_NAME)
+        $query = QueryBuilder::withQueryType(QueryType::SELECT)
+            ->withTableName(WithdrawHistoryEntity::TABLE_NAME)
             ->columns(['*'])
             ->whereParams(array(
                 [WithdrawHistoryTableSchema::ID, '=', $this->escape_string($id)]
