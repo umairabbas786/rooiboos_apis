@@ -36,9 +36,11 @@ class Manifest {
             CurrencyEntity::class,
             CustomerWalletEntity::class,
             DepositFeeEntity::class,
+            SendFeeEntity::class,
             WithdrawFeeEntity::class,
             BankEntity::class,
-            DepositHistoryEntity::class
+            DepositHistoryEntity::class,
+            WithdrawHistoryEntity::class
         ],
         'schema' => [
             CustomerTableSchema::class,
@@ -46,9 +48,11 @@ class Manifest {
             CurrencyTableSchema::class,
             CustomerWalletTableSchema::class,
             DepositFeeTableSchema::class,
+            SendFeeTableSchema::class,
             WithdrawFeeTableSchema::class,
             BankTableSchema::class,
-            DepositHistoryTableSchema::class
+            DepositHistoryTableSchema::class,
+            WithdrawHistoryTableSchema::class
         ],
         'factories' => [
             CustomerFactory::class,
@@ -56,9 +60,11 @@ class Manifest {
             CurrencyFactory::class,
             CustomerWalletFactory::class,
             DepositFeeFactory::class,
+            SendFeeFactory::class,
             WithdrawFeeFactory::class,
             BankFactory::class,
-            DepositHistoryFactory::class
+            DepositHistoryFactory::class,
+            WithdrawHistoryFactory::class
         ],
         'dao' => [
             CustomerDao::class,
@@ -66,9 +72,11 @@ class Manifest {
             CurrencyDao::class,
             CustomerWalletDao::class,
             DepositFeeDao::class,
+            SendFeeDao::class,
             WithdrawFeeDao::class,
             BankDao::class,
-            DepositHistoryDao::class
+            DepositHistoryDao::class,
+            WithdrawHistoryDao::class
         ],
         'db' => [
             RooiBoosDB::class
@@ -115,9 +123,12 @@ class Manifest {
             WithdrawBalance::class,
             GetWithdrawFee::class,
             GetDepositFee::class,
+            GetSendFee::class,
             FetchBanks::class,
             FetchDepositHistoryWithCustomerId::class,
-            AddDepositHistory::class
+            AddDepositHistory::class,
+            FetchWithdrawHistoryWithCustomerId::class,
+            AddWithdrawHistory::class
         ]
     ];
 
