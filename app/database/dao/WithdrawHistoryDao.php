@@ -2,7 +2,6 @@
 
 
 class WithdrawHistoryDao extends TableDao {
-
     /**
      * WithdrawHistoryDao constructor.
      * @param mysqli $connection
@@ -22,13 +21,13 @@ class WithdrawHistoryDao extends TableDao {
         array_push($insertColumns, WithdrawHistoryTableSchema::CURRENCY_ID);
         array_push($insertValues, $this->escape_string($withdrawHistoryEntity->getCurrencyId()));
 
-        array_push($insertColumns, WithdrawHistoryTableSchema::CURRENCY_ID);
+        array_push($insertColumns, WithdrawHistoryTableSchema::BANK_ID);
         array_push($insertValues, $this->escape_string($withdrawHistoryEntity->getBankId()));
 
-        array_push($insertColumns, WithdrawHistoryTableSchema::CURRENCY_ID);
+        array_push($insertColumns, WithdrawHistoryTableSchema::ACCOUNT_HOLDER_NAME);
         array_push($insertValues, $this->escape_string($withdrawHistoryEntity->getAccountHolderName()));
 
-        array_push($insertColumns, WithdrawHistoryTableSchema::CURRENCY_ID);
+        array_push($insertColumns, WithdrawHistoryTableSchema::IBAN);
         array_push($insertValues, $this->escape_string($withdrawHistoryEntity->getIban()));
 
         array_push($insertColumns, WithdrawHistoryTableSchema::BALANCE);
@@ -96,15 +95,15 @@ class WithdrawHistoryDao extends TableDao {
     }
 
     /**
-     * @param string $id
+     * @param string $withdrawId
      * @return WithdrawHistoryEntity|null
      */
-    public function getWithdrawHistoryWithId(string $id): ?WithdrawHistoryEntity {
+    public function getWithdrawHistoryWithId(string $withdrawId): ?WithdrawHistoryEntity {
         $query = QueryBuilder::withQueryType(QueryType::SELECT)
             ->withTableName(WithdrawHistoryEntity::TABLE_NAME)
             ->columns(['*'])
             ->whereParams(array(
-                [WithdrawHistoryTableSchema::ID, '=', $this->escape_string($id)]
+                [WithdrawHistoryTableSchema::ID, '=', $this->escape_string($withdrawId)]
             ))
             ->generate();
 

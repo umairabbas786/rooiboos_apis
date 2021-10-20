@@ -50,7 +50,7 @@ class AddWithdrawHistory extends RooiBoosApi {
 
         if($withdrawHistory === null){
             $this->killAsFailure([
-                "failed_to_add_withdraw_data" => true
+                "failed_to_add_data" => true
             ]);
         }
 
