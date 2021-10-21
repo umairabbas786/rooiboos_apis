@@ -41,7 +41,9 @@ class Manifest {
             BankEntity::class,
             DepositHistoryEntity::class,
             WithdrawHistoryEntity::class,
-            MyselfRecipientEntity::class
+            MyselfRecipientEntity::class,
+            SomeoneRecipientEntity::class,
+            SendHistoryEntity::class
         ],
         'schema' => [
             CustomerTableSchema::class,
@@ -54,7 +56,9 @@ class Manifest {
             BankTableSchema::class,
             DepositHistoryTableSchema::class,
             WithdrawHistoryTableSchema::class,
-            MyselfRecipientTableSchema::class
+            MyselfRecipientTableSchema::class,
+            SomeoneRecipientTableSchema::class,
+            SendHistoryTableSchema::class
         ],
         'factories' => [
             CustomerFactory::class,
@@ -67,7 +71,9 @@ class Manifest {
             BankFactory::class,
             DepositHistoryFactory::class,
             WithdrawHistoryFactory::class,
-            MyselfRecipientFactory::class
+            MyselfRecipientFactory::class,
+            SomeoneRecipientFactory::class,
+            SendHistoryFactory::class
         ],
         'dao' => [
             CustomerDao::class,
@@ -80,7 +86,9 @@ class Manifest {
             BankDao::class,
             DepositHistoryDao::class,
             WithdrawHistoryDao::class,
-            MyselfRecipientDao::class
+            MyselfRecipientDao::class,
+            SomeoneRecipientDao::class,
+            SendHistoryDao::class
         ],
         'db' => [
             RooiBoosDB::class
@@ -132,7 +140,13 @@ class Manifest {
             FetchDepositHistoryWithCustomerId::class,
             AddDepositHistory::class,
             FetchWithdrawHistoryWithCustomerId::class,
-            AddWithdrawHistory::class
+            AddWithdrawHistory::class,
+            AddMyselfRecipient::class,
+            AddSomeoneRecipient::class,
+            FetchMyselfRecipientWithCustomerId::class,
+            FetchSomeoneRecipientWithCustomerId::class,
+            AddSendHistory::class,
+            FetchSendHistoryWithCustomerId::class
         ]
     ];
 
