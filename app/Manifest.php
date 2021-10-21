@@ -40,7 +40,8 @@ class Manifest {
             WithdrawFeeEntity::class,
             BankEntity::class,
             DepositHistoryEntity::class,
-            WithdrawHistoryEntity::class
+            WithdrawHistoryEntity::class,
+            MyselfRecipientEntity::class
         ],
         'schema' => [
             CustomerTableSchema::class,
@@ -52,7 +53,8 @@ class Manifest {
             WithdrawFeeTableSchema::class,
             BankTableSchema::class,
             DepositHistoryTableSchema::class,
-            WithdrawHistoryTableSchema::class
+            WithdrawHistoryTableSchema::class,
+            MyselfRecipientTableSchema::class
         ],
         'factories' => [
             CustomerFactory::class,
@@ -64,7 +66,8 @@ class Manifest {
             WithdrawFeeFactory::class,
             BankFactory::class,
             DepositHistoryFactory::class,
-            WithdrawHistoryFactory::class
+            WithdrawHistoryFactory::class,
+            MyselfRecipientFactory::class
         ],
         'dao' => [
             CustomerDao::class,
@@ -76,7 +79,8 @@ class Manifest {
             WithdrawFeeDao::class,
             BankDao::class,
             DepositHistoryDao::class,
-            WithdrawHistoryDao::class
+            WithdrawHistoryDao::class,
+            MyselfRecipientDao::class
         ],
         'db' => [
             RooiBoosDB::class
