@@ -14,7 +14,7 @@ class SendHistoryTableSchema extends TableSchema {
     const CREATED_AT = "created_at";
     const UPDATED_AT = "updated_at";
 
-    public function __construct() { parent::__construct(SomeoneRecipientEntity::TABLE_NAME); }
+    public function __construct() { parent::__construct(SendHistoryEntity::TABLE_NAME); }
 
     public function getBlueprint(): string {
         return "CREATE TABLE IF NOT EXISTS " . $this->getTableName() . "(
