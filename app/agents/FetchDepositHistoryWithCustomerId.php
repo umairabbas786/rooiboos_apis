@@ -22,6 +22,7 @@ class FetchDepositHistoryWithCustomerId extends RooiBoosApi {
                 DepositHistoryTableSchema::ID => $depositHistory->getId(),
                 DepositHistoryTableSchema::CURRENCY_ID => $depositHistory->getCurrencyId(),
                 DepositHistoryTableSchema::BALANCE => $depositHistory->getBalance(),
+                DepositHistoryTableSchema::FROM_EMAIL => $depositHistory->getFromEmail(),
                 DepositHistoryTableSchema::CREATED_AT => $depositHistory->getCreatedAt()
             ]);
         }

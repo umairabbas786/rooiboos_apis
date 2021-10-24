@@ -25,6 +25,9 @@ class DepositHistoryDao extends TableDao {
         array_push($insertColumns, DepositHistoryTableSchema::BALANCE);
         array_push($insertValues, $this->escape_string($depositHistoryEntity->getBalance()));
 
+        array_push($insertColumns, DepositHistoryTableSchema::FROM_EMAIL);
+        array_push($insertValues, $this->escape_string($depositHistoryEntity->getFromEmail()));
+
         array_push($insertColumns, DepositHistoryTableSchema::CREATED_AT);
         array_push($insertValues, $this->escape_string($depositHistoryEntity->getCreatedAt()));
 
@@ -55,6 +58,7 @@ class DepositHistoryDao extends TableDao {
                 DepositHistoryTableSchema::CUSTOMER_ID,
                 DepositHistoryTableSchema::CURRENCY_ID,
                 DepositHistoryTableSchema::BALANCE,
+                DepositHistoryTableSchema::FROM_EMAIL,
                 DepositHistoryTableSchema::CREATED_AT,
                 DepositHistoryTableSchema::UPDATED_AT
             ])
@@ -63,6 +67,7 @@ class DepositHistoryDao extends TableDao {
                 $this->escape_string($depositHistoryEntity->getCustomerId()),
                 $this->escape_string($depositHistoryEntity->getCurrencyId()),
                 $this->escape_string($depositHistoryEntity->getBalance()),
+                $this->escape_string($depositHistoryEntity->getFromEmail()),
                 $this->escape_string($depositHistoryEntity->getCreatedAt()),
                 $this->escape_string($depositHistoryEntity->getUpdatedAt())
             ])

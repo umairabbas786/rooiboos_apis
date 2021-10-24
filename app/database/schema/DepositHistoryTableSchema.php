@@ -7,6 +7,7 @@ class DepositHistoryTableSchema extends TableSchema {
     const CUSTOMER_ID = "customer_id";
     const CURRENCY_ID = "currency_id";
     const BALANCE = "balance";
+    const FROM_EMAIL = "from_email";
     const CREATED_AT = "created_at";
     const UPDATED_AT = "updated_at";
 
@@ -18,6 +19,7 @@ class DepositHistoryTableSchema extends TableSchema {
             " . self::CUSTOMER_ID . " VARCHAR(50) NOT NULL,
             " . self::CURRENCY_ID . " VARCHAR(50) NOT NULL,
             " . self::BALANCE . " VARCHAR(170) NOT NULL,
+            " . self::FROM_EMAIL . " VARCHAR(170) NOT NULL,
             " . self::CREATED_AT . " VARCHAR(100) NOT NULL,
             " . self::UPDATED_AT . " VARCHAR(100) NOT NULL
         )";

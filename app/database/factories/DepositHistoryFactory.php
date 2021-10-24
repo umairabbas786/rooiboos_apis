@@ -12,6 +12,7 @@ class DepositHistoryFactory {
             $result[DepositHistoryTableSchema::CUSTOMER_ID],
             $result[DepositHistoryTableSchema::CURRENCY_ID],
             (float) $result[DepositHistoryTableSchema::BALANCE],
+            $result[DepositHistoryTableSchema::FROM_EMAIL],
             $result[DepositHistoryTableSchema::CREATED_AT],
             $result[DepositHistoryTableSchema::UPDATED_AT]
         );

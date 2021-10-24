@@ -8,6 +8,7 @@ class DepositHistoryEntity {
     private string $customerId;
     private string $currencyId;
     private string $balance;
+    private string $fromEmail;
     private string $createdAt;
     private string $updatedAt;
 
@@ -16,14 +17,16 @@ class DepositHistoryEntity {
      * @param string $customerId
      * @param string $currencyId
      * @param string $balance
+     * @param string $fromEmail
      * @param string $createdAt
      * @param string $updatedAt
      */
-    public function __construct(string $id, string $customerId, string $currencyId, string $balance, string $createdAt, string $updatedAt) {
+    public function __construct(string $id, string $customerId, string $currencyId, string $balance, string $fromEmail, string $createdAt, string $updatedAt) {
         $this->id = $id;
         $this->customerId = $customerId;
         $this->currencyId = $currencyId;
         $this->balance = $balance;
+        $this->fromEmail = $fromEmail;
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
     }
@@ -87,6 +90,20 @@ class DepositHistoryEntity {
     /**
      * @return string
      */
+    public function getFromEmail(): string {
+        return $this->fromEmail;
+    }
+
+    /**
+     * @param string $fromEmail
+     */
+    public function setFromEmail(string $fromEmail): void {
+        $this->fromEmail = $fromEmail;
+    }
+
+    /**
+     * @return string
+     */
     public function getCreatedAt(): string {
         return $this->createdAt;
     }
@@ -111,8 +128,6 @@ class DepositHistoryEntity {
     public function setUpdatedAt(string $updatedAt): void {
         $this->updatedAt = $updatedAt;
     }
-
-
 
 
 }
