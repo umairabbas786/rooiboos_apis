@@ -4,8 +4,8 @@
 class CurrencyChargesTableSchema extends TableSchema {
 
     const ID = "id";
-    const FROM = "from";
-    const TO = "to";
+    const FROM = "from_id";
+    const TO = "to_id";
     const RATE = "rate";
     const CREATED_AT = "created_at";
     const UPDATED_AT = "updated_at";

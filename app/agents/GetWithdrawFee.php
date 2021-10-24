@@ -23,7 +23,7 @@ class GetWithdrawFee extends RooiBoosApi {
         $this->withdrawFeeEntity = $this->getRooiBoosDB()->getWithdrawFeeDao()->getWithdrawFeeWithId(WithdrawFeeEntity::ID);
 
         $this->resSendOK([
-            'withdraw_fee_percent' => (int) $this->withdrawFeeEntity->getWithdrawFee()
+            'withdraw_fee_percent' => (float) $this->withdrawFeeEntity->getWithdrawFee()
         ]);
     }
 }

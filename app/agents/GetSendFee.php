@@ -23,7 +23,7 @@ class GetSendFee extends RooiBoosApi {
         $this->sendFeeEntity = $this->getRooiBoosDB()->getSendFeeDao()->getSendFeeWithId(SendFeeEntity::ID);
 
         $this->resSendOK([
-            'send_fee_percent' => (int) $this->sendFeeEntity->getSendFee()
+            'send_fee_percent' => (float) $this->sendFeeEntity->getSendFee()
         ]);
     }
 }

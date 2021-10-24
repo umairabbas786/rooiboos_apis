@@ -29,10 +29,9 @@ class GetCurrencyCharges extends RooiBoosApi {
             ->getCurrencyChargesWithCurrencyIds($_POST[self::FROM],$_POST[self::TO]);
 
         $this->resSendOK([
-            'currency_charges' => $currencyCharges === null ? null : [
-                CurrencyChargesTableSchema::RATE => $currencyCharges->getRate()
-            ]
-        ]);
+                'currency_conversion_rate' => (float) $currencyCharges->getRate()
+        ]
+        );
 
     }
 }

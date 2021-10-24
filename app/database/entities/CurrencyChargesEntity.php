@@ -5,24 +5,24 @@ class CurrencyChargesEntity {
     const TABLE_NAME = "currency_charges";
 
     private string $id;
-    private string $from;
-    private string $to;
+    private string $fromId;
+    private string $toId;
     private string $rate;
     private string $createdAt;
     private string $updatedAt;
 
     /**
      * @param string $id
-     * @param string $from
-     * @param string $to
+     * @param string $fromId
+     * @param string $toId
      * @param string $rate
      * @param string $createdAt
      * @param string $updatedAt
      */
-    public function __construct(string $id, string $from, string $to, string $rate, string $createdAt, string $updatedAt) {
+    public function __construct(string $id, string $fromId, string $toId, string $rate, string $createdAt, string $updatedAt) {
         $this->id = $id;
-        $this->from = $from;
-        $this->to = $to;
+        $this->fromId = $fromId;
+        $this->toId = $toId;
         $this->rate = $rate;
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
@@ -45,29 +45,29 @@ class CurrencyChargesEntity {
     /**
      * @return string
      */
-    public function getFrom(): string {
-        return $this->from;
+    public function getFromId(): string {
+        return $this->fromId;
     }
 
     /**
-     * @param string $from
+     * @param string $fromId
      */
-    public function setFrom(string $from): void {
-        $this->from = $from;
+    public function setFromId(string $fromId): void {
+        $this->fromId = $fromId;
     }
 
     /**
      * @return string
      */
-    public function getTo(): string {
-        return $this->to;
+    public function getToId(): string {
+        return $this->toId;
     }
 
     /**
-     * @param string $to
+     * @param string $toId
      */
-    public function setTo(string $to): void {
-        $this->to = $to;
+    public function setToId(string $toId): void {
+        $this->toId = $toId;
     }
 
     /**
@@ -111,8 +111,5 @@ class CurrencyChargesEntity {
     public function setUpdatedAt(string $updatedAt): void {
         $this->updatedAt = $updatedAt;
     }
-
-
-
 
 }

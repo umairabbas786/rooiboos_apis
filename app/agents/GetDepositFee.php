@@ -23,7 +23,7 @@ class GetDepositFee extends RooiBoosApi {
         $this->depositFeeEntity = $this->getRooiBoosDB()->getDepositFeeDao()->getDepositFeeWithId(DepositFeeEntity::ID);
 
         $this->resSendOK([
-            'deposit_fee_percent' => (int) $this->depositFeeEntity->getDepositFee()
+            'deposit_fee_percent' => (float) $this->depositFeeEntity->getDepositFee()
         ]);
     }
 }

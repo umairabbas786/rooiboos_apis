@@ -23,7 +23,7 @@ class GetCurrencyFee extends RooiBoosApi {
         $this->currencyFeeEntity = $this->getRooiBoosDB()->getCurrencyFeeDao()->getCurrencyFeeWithId(CurrencyFeeEntity::ID);
 
         $this->resSendOK([
-            'currency_fee_percent' => (int) $this->currencyFeeEntity->getCurrencyFee()
+            'currency_fee_percent' => (float) $this->currencyFeeEntity->getCurrencyFee()
         ]);
     }
 }
