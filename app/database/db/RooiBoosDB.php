@@ -22,6 +22,7 @@ class RooiBoosDB {
     private SomeoneRecipientDao $someoneRecipientDao;
     private SendHistoryDao $sendHistoryDao;
     private CurrencyFeeDao $currencyFeeDao;
+    private CurrencyChargesDao $currencyChargesDao;
 
     function __construct() {
         $temp_conn = mysqli_connect(self::HOSTNAME, self::USERNAME, self::PASSWORD, self::DATABASE);
@@ -73,6 +74,9 @@ class RooiBoosDB {
 
         mysqli_query($this->conn, (new CurrencyFeeTableSchema())->getBlueprint()); // Create Currency Fee Table
         $this->currencyFeeDao = new CurrencyFeeDao($this->conn); // Initialize Currency Fee Dao
+
+        mysqli_query($this->conn, (new CurrencyChargesTableSchema())->getBlueprint()); // Create Currency Charges Table
+        $this->currencyChargesDao = new CurrencyChargesDao($this->conn); // Initialize Currency Charges Dao
     }
 
     public function getConnection(): mysqli {
@@ -137,5 +141,9 @@ class RooiBoosDB {
 
     public function getCurrencyFeeDao(): CurrencyFeeDao {
         return $this->currencyFeeDao;
+    }
+
+    public function getCurrencyChargesDao(): CurrencyChargesDao {
+        return $this->currencyChargesDao;
     }
 }

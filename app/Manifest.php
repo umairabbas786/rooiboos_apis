@@ -44,7 +44,8 @@ class Manifest {
             WithdrawHistoryEntity::class,
             MyselfRecipientEntity::class,
             SomeoneRecipientEntity::class,
-            SendHistoryEntity::class
+            SendHistoryEntity::class,
+            CurrencyChargesEntity::class
         ],
         'schema' => [
             CustomerTableSchema::class,
@@ -60,7 +61,8 @@ class Manifest {
             WithdrawHistoryTableSchema::class,
             MyselfRecipientTableSchema::class,
             SomeoneRecipientTableSchema::class,
-            SendHistoryTableSchema::class
+            SendHistoryTableSchema::class,
+            CurrencyChargesTableSchema::class
         ],
         'factories' => [
             CustomerFactory::class,
@@ -69,14 +71,15 @@ class Manifest {
             CustomerWalletFactory::class,
             DepositFeeFactory::class,
             SendFeeFactory::class,
-            CurrencyFactory::class,
+            CurrencyFeeFactory::class,
             WithdrawFeeFactory::class,
             BankFactory::class,
             DepositHistoryFactory::class,
             WithdrawHistoryFactory::class,
             MyselfRecipientFactory::class,
             SomeoneRecipientFactory::class,
-            SendHistoryFactory::class
+            SendHistoryFactory::class,
+            CurrencyChargesFactory::class
         ],
         'dao' => [
             CustomerDao::class,
@@ -92,7 +95,8 @@ class Manifest {
             WithdrawHistoryDao::class,
             MyselfRecipientDao::class,
             SomeoneRecipientDao::class,
-            SendHistoryDao::class
+            SendHistoryDao::class,
+            CurrencyChargesDao::class
         ],
         'db' => [
             RooiBoosDB::class
@@ -150,7 +154,9 @@ class Manifest {
             FetchMyselfRecipientWithCustomerId::class,
             FetchSomeoneRecipientWithCustomerId::class,
             AddSendHistory::class,
-            FetchSendHistoryWithCustomerId::class
+            FetchSendHistoryWithCustomerId::class,
+            GetCurrencyCharges::class,
+            GetCurrencyFee::class
         ]
     ];
 
