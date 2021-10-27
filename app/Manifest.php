@@ -45,7 +45,8 @@ class Manifest {
             MyselfRecipientEntity::class,
             SomeoneRecipientEntity::class,
             SendHistoryEntity::class,
-            CurrencyChargesEntity::class
+            CurrencyChargesEntity::class,
+            NotificationEntity::class
         ],
         'schema' => [
             CustomerTableSchema::class,
@@ -62,7 +63,8 @@ class Manifest {
             MyselfRecipientTableSchema::class,
             SomeoneRecipientTableSchema::class,
             SendHistoryTableSchema::class,
-            CurrencyChargesTableSchema::class
+            CurrencyChargesTableSchema::class,
+            NotificationTableSchema::class
         ],
         'factories' => [
             CustomerFactory::class,
@@ -79,7 +81,8 @@ class Manifest {
             MyselfRecipientFactory::class,
             SomeoneRecipientFactory::class,
             SendHistoryFactory::class,
-            CurrencyChargesFactory::class
+            CurrencyChargesFactory::class,
+            NotificationFactory::class
         ],
         'dao' => [
             CustomerDao::class,
@@ -96,7 +99,8 @@ class Manifest {
             MyselfRecipientDao::class,
             SomeoneRecipientDao::class,
             SendHistoryDao::class,
-            CurrencyChargesDao::class
+            CurrencyChargesDao::class,
+            NotificationDao::class
         ],
         'db' => [
             RooiBoosDB::class
@@ -119,13 +123,12 @@ class Manifest {
         ]
     ];
 
-//    private const MODELS = [
-//        'dir_path' => './',
-//        'models' => [
-//            UserRole::class,
-//            RideState::class
-//        ]
-//    ];
+    private const MODELS = [
+        'dir_path' => './',
+        'models' => [
+            NotificationState::class,
+        ]
+    ];
 
     private const AGENTS = [
         'dir_path' => './',
@@ -156,7 +159,9 @@ class Manifest {
             AddSendHistory::class,
             FetchSendHistoryWithCustomerId::class,
             GetCurrencyCharges::class,
-            GetCurrencyFee::class
+            GetCurrencyFee::class,
+            GetNotificationsWithCustomerId::class,
+            UpdateNotificationsAsRead::class
         ]
     ];
 
@@ -201,7 +206,7 @@ class Manifest {
         self::requireItems(self::DATABASE);
         self::requireItems(self::CORE);
         self::requireItems(self::UTILS);
-        //self::requireItems(self::MODELS);
+        self::requireItems(self::MODELS);
         self::requireItems(self::AGENTS);
     }
 
