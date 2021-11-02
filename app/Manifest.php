@@ -161,7 +161,8 @@ class Manifest {
             GetCurrencyCharges::class,
             GetCurrencyFee::class,
             GetNotificationsWithCustomerId::class,
-            UpdateNotificationsAsRead::class
+            UpdateNotificationsAsRead::class,
+            EditCustomerDetails::class
         ]
     ];
 
