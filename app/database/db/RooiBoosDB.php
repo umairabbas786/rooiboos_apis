@@ -24,6 +24,7 @@ class RooiBoosDB {
     private CurrencyFeeDao $currencyFeeDao;
     private CurrencyChargesDao $currencyChargesDao;
     private NotificationDao $notificationDao;
+    private ProfilePictureDao $profilePictureDao;
 
     function __construct() {
         $temp_conn = mysqli_connect(self::HOSTNAME, self::USERNAME, self::PASSWORD, self::DATABASE);
@@ -81,6 +82,9 @@ class RooiBoosDB {
 
         mysqli_query($this->conn, (new NotificationTableSchema())->getBlueprint()); // Create Notification Table
         $this->notificationDao = new NotificationDao($this->conn); // Initialize Notification Dao
+
+        mysqli_query($this->conn, (new ProfilePictureTableSchema())->getBlueprint()); // Create Profile Picture Table
+        $this->profilePictureDao = new ProfilePictureDao($this->conn); // Initialize Profile Picture Dao
     }
 
     public function getConnection(): mysqli {
@@ -153,5 +157,9 @@ class RooiBoosDB {
 
     public function getNotificationDao(): NotificationDao {
         return $this->notificationDao;
+    }
+
+    public function getProfilePictureDao(): ProfilePictureDao {
+        return $this->profilePictureDao;
     }
 }

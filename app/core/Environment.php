@@ -26,4 +26,16 @@ trait Environment {
     }
     /** ----------------- </user_cnic_image> */
 
+    /**
+     * <user_profile_image>
+     */
+    public function getCustomerProfileImagesDirectory(): string {
+        return $this->getDataImagesDirectory() . '/users/profile/';
+    }
+
+    public function createLinkForCustomerProfileImage(string $image_name): string {
+        return $this->getServerUrlUptoImagesDir() . '/users/profile/' . $image_name;
+    }
+    /** ----------------- </user_profile_image> */
+
 }
