@@ -52,7 +52,7 @@ class UpdateCustomerProfilePicture extends RooiBoosApi {
 
         $customerPicture = $this->getRooiBoosDB()->getProfilePictureDao()->updateCustomerProfilePicture($_POST[self::CUSTOMER_ID],$pictureGeneratedName,$registration_time);
 
-        if($customerPicture === null){
+        if($customerPicture === false){
             $this->killAsFailure([
                 "failed_to_update_customer_profile_picture" => true
             ]);

@@ -97,7 +97,7 @@ class ProfilePictureDao extends TableDao {
             )
             ->whereParams(
                 array(
-                    [ProfilePictureTableSchema::ID, '=', $this->escape_string($customerId)]
+                    [ProfilePictureTableSchema::CUSTOMER_ID, '=', $this->escape_string($customerId)]
                 ))
             ->generate();
 
