@@ -10,8 +10,7 @@ class AddCustomerProfilePicture extends RooiBoosApi {
 
     protected function onAssemble() {
         $required_fields = [
-            self::CUSTOMER_ID,
-            self::PICTURE
+            self::CUSTOMER_ID
         ];
 
         foreach ($required_fields as $required_field) {
@@ -32,6 +31,13 @@ class AddCustomerProfilePicture extends RooiBoosApi {
         if ($customerEntity === null) {
             $this->killAsFailure([
                 "customer_not_found" => true
+            ]);
+        }
+
+        $customerProfile = $this->getRooiBoosDB()->getProfilePictureDao()->getProfilePictureWithCustomerId($_POST[self::CUSTOMER_ID]);
+        if($customerProfile !== null){
+            $this->killAsFailure([
+                "customer_picture_exists" => true
             ]);
         }
 
