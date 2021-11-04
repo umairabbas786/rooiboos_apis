@@ -85,24 +85,23 @@ class ProfilePictureDao extends TableDao {
         return null;
     }
 
-//    public function updateCustomerAccount(string $customerId,string $accountName,string $accountNumber,string $iban,string $updatedAt): bool{
-//        $query = QueryBuilder::withQueryType(QueryType::UPDATE)
-//            ->withTableName(CustomerEntity::TABLE_NAME)
-//            ->updateParams(
-//                [
-//                    [CustomerTableSchema::ACCOUNT_HOLDER_NAME, $this->escape_string($accountName)],
-//                    [CustomerTableSchema::ACCOUNT_NUMBER, $this->escape_string($accountNumber)],
-//                    [CustomerTableSchema::IBAN_ACCOUNT_NUMBER, $this->escape_string($iban)],
-//                    [CustomerTableSchema::UPDATED_AT, $this->escape_string($updatedAt)]
-//                ]
-//            )
-//            ->whereParams(
-//                array(
-//                    [CustomerTableSchema::ID, '=', $this->escape_string($customerId)]
-//                ))
-//            ->generate();
-//
-//        $result = mysqli_query($this->getConnection(),$query);
-//        return (bool) $result;
-//    }
+    public function updateCustomerProfilePicture(string $customerId,string $picture,string $updatedAt): bool{
+        $query = QueryBuilder::withQueryType(QueryType::UPDATE)
+            ->withTableName(ProfilePictureEntity::TABLE_NAME)
+            ->updateParams(
+                [
+                    [ProfilePictureTableSchema::CUSTOMER_ID, $this->escape_string($customerId)],
+                    [ProfilePictureTableSchema::PICTURE, $this->escape_string($picture)],
+                    [ProfilePictureTableSchema::UPDATED_AT, $this->escape_string($updatedAt)]
+                ]
+            )
+            ->whereParams(
+                array(
+                    [ProfilePictureTableSchema::ID, '=', $this->escape_string($customerId)]
+                ))
+            ->generate();
+
+        $result = mysqli_query($this->getConnection(),$query);
+        return (bool) $result;
+    }
 }

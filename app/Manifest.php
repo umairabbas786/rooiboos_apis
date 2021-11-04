@@ -168,7 +168,8 @@ class Manifest {
             UpdateNotificationsAsRead::class,
             EditCustomerDetails::class,
             AddCustomerProfilePicture::class,
-            FetchCustomerProfilePictureWithCustomerId::class
+            FetchCustomerProfilePictureWithCustomerId::class,
+            UpdateCustomerProfilePicture::class
         ]
     ];
 
