@@ -115,4 +115,24 @@ class DepositHistoryDao extends TableDao {
         return $histories;
     }
 
+    public function hasMoreThanThreeTransactions(string $customerId): bool{
+        $query = QueryBuilder::withQueryType(QueryType::SELECT)
+            ->withTableName(DepositHistoryEntity::TABLE_NAME)
+            ->columns(['*'])
+            ->whereParams(array(
+                [DepositHistoryTableSchema::CUSTOMER_ID, '=', $this->escape_string($customerId)]
+            ))
+            ->generate();
+
+        $histories = [];
+
+        $result = mysqli_query($this->getConnection(),$query);
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            array_push($histories, DepositHistoryFactory::mapFromDatabaseResult($row));
+        }
+
+        return count($histories) >= 3;
+    }
+
 }

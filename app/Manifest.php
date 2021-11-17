@@ -47,7 +47,8 @@ class Manifest {
             SendHistoryEntity::class,
             CurrencyChargesEntity::class,
             NotificationEntity::class,
-            ProfilePictureEntity::class
+            ProfilePictureEntity::class,
+            InviteEntity::class
         ],
         'schema' => [
             CustomerTableSchema::class,
@@ -66,7 +67,8 @@ class Manifest {
             SendHistoryTableSchema::class,
             CurrencyChargesTableSchema::class,
             NotificationTableSchema::class,
-            ProfilePictureTableSchema::class
+            ProfilePictureTableSchema::class,
+            InviteTableSchema::class
         ],
         'factories' => [
             CustomerFactory::class,
@@ -85,7 +87,8 @@ class Manifest {
             SendHistoryFactory::class,
             CurrencyChargesFactory::class,
             NotificationFactory::class,
-            ProfilePictureFactory::class
+            ProfilePictureFactory::class,
+            InviteFactory::class
         ],
         'dao' => [
             CustomerDao::class,
@@ -104,7 +107,8 @@ class Manifest {
             SendHistoryDao::class,
             CurrencyChargesDao::class,
             NotificationDao::class,
-            ProfilePictureDao::class
+            ProfilePictureDao::class,
+            InviteDao::class
         ],
         'db' => [
             RooiBoosDB::class
@@ -169,7 +173,11 @@ class Manifest {
             EditCustomerDetails::class,
             AddCustomerProfilePicture::class,
             FetchCustomerProfilePictureWithCustomerId::class,
-            UpdateCustomerProfilePicture::class
+            UpdateCustomerProfilePicture::class,
+            CheckTransactionWithCustomerId::class,
+            GenerateInviteCode::class,
+            GetCustomerIdWithInviteCode::class,
+            GetInviteCodeWithCustomerId::class
         ]
     ];
 
