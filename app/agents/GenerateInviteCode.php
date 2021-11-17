@@ -23,7 +23,15 @@ class GenerateInviteCode extends RooiBoosApi {
 
         $registration_time = Carbon::now();
 
-        $inviteEntity = new InviteEntity(
+        $inviteEntity = $this->getRooiBoosDB()->getInviteDao()->getInviteWithCustomerId($_POST[self::CUSTOMER_ID]);
+
+        if ($inviteEntity === null) {
+            $this->killAsFailure([
+                "referral_code_already_generated" => true
+            ]);
+        }
+
+        $invite = new InviteEntity(
             Uuid::uuid4()->toString(),
             $_POST[self::CUSTOMER_ID],
             bin2hex(openssl_random_pseudo_bytes(3)),
@@ -31,9 +39,9 @@ class GenerateInviteCode extends RooiBoosApi {
             $registration_time
         );
 
-        $inviteEntity = $this->getRooiBoosDB()->getInviteDao()->insertInvite($inviteEntity);
+        $invite = $this->getRooiBoosDB()->getInviteDao()->insertInvite($invite);
 
-        if($inviteEntity === null){
+        if($invite === null){
             $this->killAsFailure([
                 "failed_to_generate_referral_code" => true
             ]);

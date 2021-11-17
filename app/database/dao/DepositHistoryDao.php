@@ -115,7 +115,7 @@ class DepositHistoryDao extends TableDao {
         return $histories;
     }
 
-    public function hasMoreThanThreeTransactions(string $customerId): bool{
+    public function hasMoreThanThreeTransactions(string $customerId): int{
         $query = QueryBuilder::withQueryType(QueryType::SELECT)
             ->withTableName(DepositHistoryEntity::TABLE_NAME)
             ->columns(['*'])
@@ -132,7 +132,7 @@ class DepositHistoryDao extends TableDao {
             array_push($histories, DepositHistoryFactory::mapFromDatabaseResult($row));
         }
 
-        return count($histories) >= 3;
+        return count($histories);
     }
 
 }
