@@ -11,15 +11,14 @@ class GetInviteCodeWithCustomerId extends RooiBoosApi {
     }
 
     protected function onDevise() {
-        $data = [];
 
-        /** @var InviteEntity $invite */
-        foreach ($this->getRooiBoosDB()->getInviteDao()->getInviteWithCustomerId($_POST[self::CUSTOMER_ID]) as $invite){
-            array_push($data,[
-                InviteTableSchema::CODE => $invite->getCode()
-            ]);
-        }
+        $inviteEntity = $this->getRooiBoosDB()->getInviteDao()->getInviteWithCustomerId($_POST[self::CUSTOMER_ID]);
 
-        $this->resSendOK($data);
+
+        $this->resSendOK([
+            'referral_code'=>[
+                InviteTableSchema::CODE => $inviteEntity->getCode()
+            ]
+        ]);
     }
 }
